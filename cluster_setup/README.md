@@ -3,12 +3,12 @@
 Master Node
 ############
 
-]#sudo su
+]$sudo su
 ]#swapoff -a
 ]#vi /etc/fstab --> comment out /root/swap swap swap sw 0 0
 ]#yum update -y
 ]#setenforce 0
-]# vi /etc/selinux/config ->  change in the file enable to disable, otherwise on next reboot Selinux will get enable.
+]# vi /etc/selinux/config ->  change in the file SELINUX=disabled, otherwise on next reboot Selinux will get enable.
 ]#yum -y install docker
 ]#systemctl enable docker; systemctl start docker
 
@@ -21,8 +21,8 @@ Master Node
 	repo_gpgcheck=1
 	gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
    EOF
-]# yum install -y kubelet kubeadm kubectl
-]# systemctl start kubelet; systemctl enable kubelet
+]#yum install -y kubelet kubeadm kubectl
+]#systemctl start kubelet; systemctl enable kubelet
 ]#cat <<EOF >  /etc/sysctl.d/k8s.conf
 	net.bridge.bridge-nf-call-ip6tables = 1
 	net.bridge.bridge-nf-call-iptables = 1
@@ -31,7 +31,7 @@ Master Node
 ]#kubeadm init --pod-network-cidr=10.244.0.0/16
 
 ]#exit
-]$HOME/.kube/config
+]$mkdir -p $HOME/.kube
 ]$sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config 	
 ]$sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ]$export kubever=$(kubectl version | base64 | tr -d '\n')
@@ -42,15 +42,14 @@ Master Node
 ```
 Worker Node
 ############
-]#sudo su
+]$sudo su
 ]#swapoff -a
-]#vi /etc/fstap --> comment out /root/swap swap swap sw 0 0
+]#vi /etc/fstab --> comment out /root/swap swap swap sw 0 0
 ]#yum update -y
 ]#setenforce 0
-]# vi /etc/selinux/config -> change in the file enable to disable, otherwise on next reboot Selinux will get enable.
+]# vi /etc/selinux/config -> change in the file SELINUX=disabled, otherwise on next reboot Selinux will get enable.
 ]#yum -y install docker
-]#systemctl enable docker
-]#systemctl start docker
+]#systemctl enable docker; systemctl start docker
 #]cat <<EOF > /etc/yum.repos.d/kubernetes.repo
 	[kubernetes]
 	name=Kubernetes
@@ -60,8 +59,8 @@ Worker Node
 	repo_gpgcheck=1
 	gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
    EOF
-]# yum install -y kubelet kubeadm kubectl
-]# systemctl start kubelet
+]#yum install -y kubelet kubeadm kubectl
+]#systemctl start kubelet
 ]#systemctl enable kubelet
 ]#cat <<EOF >  /etc/sysctl.d/k8s.conf
 	net.bridge.bridge-nf-call-ip6tables = 1
