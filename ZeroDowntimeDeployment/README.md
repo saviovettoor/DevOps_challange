@@ -24,6 +24,7 @@ Get the NodePort service detail
 NOTE: with clusterIP you can access the app inside the VM
 ```
 
+# Rolling out Update
 ```
 Before roleing out update just login to another terminal of our cluster and run the below command
 ]$while true; do  curl 10.97.112.73; sleep 1s; done
