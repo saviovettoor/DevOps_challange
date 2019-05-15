@@ -1,4 +1,4 @@
-#Blue/Green Deployment using Istio
+# Blue/Green Deployment using Istio
 
 ```
 Istio Installation
