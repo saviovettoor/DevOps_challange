@@ -1,7 +1,7 @@
 ## We are going to approach the assignment in the following steps:
 
 1. Docker image creation
-    - First we are going to create an image of our application.
+    - First we are going to create an image of our application.[Link](https://github.com/saviovettoor/risk.ident_challange/tree/master/docker_image#image-creation)
     - Once the image is created we are uploading the image to the public docker hub: [Link](https://cloud.docker.com/repository/registry-1.docker.io/saviovettoor/myapp)
 
 2. Setting up a 3 node kubernetes cluster.
