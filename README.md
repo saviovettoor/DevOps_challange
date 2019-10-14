@@ -19,4 +19,5 @@
     - Enableing both Horizontal and vertical scale of app (Based on traffic/CPU/Memory).
     - In one click provisioning entire cluster setup (using terraform or ansible).
     - Monitoing tha application and cluster (prometheus/nagios )
-    - Enhaceing the deployment using Istio by canary deployment or using Blue/Green Deployment[link](https://github.com/saviovettoor/risk.ident_challange/blob/master/BlueGreenDeploymentUsingIstio/README.md#bluegreen-deployment-using-istio) 
+i    - Enhaceing the deployment using Istio by canary deployment or using Blue/Green Deployment[link](https://github.com/saviovettoor/risk.ident_challange/blob/master/BlueGreenDeploymentUsingIstio/README.md#bluegreen-deployment-using-istio) 
+iaia
